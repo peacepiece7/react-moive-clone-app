@@ -426,7 +426,6 @@ axios를 이용해 .json 파일을 받아오고
 
 코드를 통해 확인 할 수 있음!
 
-
 # deploy하기 (gh-pages)
 
 터미널에서 gh-pages 설치
@@ -434,18 +433,20 @@ axios를 이용해 .json 파일을 받아오고
 `npm install gh-pages`
 
 package.json에 아래와 같이 코드 작성
+
 ```json
 // package.json
 {
-  "scripts" : {
-    "build" : "react-scripts build",
-    "deploy" : "gh-pages -d build",
-    "predeploy" : "npm run build"
+  "scripts": {
+    "build": "react-scripts build",
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build"
   },
-  "homepage" : "https://peacepiece7.github.io/react-movie-clone/"
+  "homepage": "https://peacepiece7.github.io/react-movie-clone/"
 }
 ```
-scripts의 npm run predeploy는 실행 종료 후 deploy를 실행함
+
+scripts의 npm run deploy는 predeploy를 실행 종료 후 deploy를 실행 함
 
 "homepage"는 반드시 소문자로 작성해야함!
 
