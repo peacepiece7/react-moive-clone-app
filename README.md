@@ -1,1 +1,0 @@
-# react-moive-clone-app
