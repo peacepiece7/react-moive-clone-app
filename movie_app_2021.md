@@ -451,3 +451,66 @@ scripts의 npm run deploy는 predeploy를 실행 종료 후 deploy를 실행 함
 "homepage"는 반드시 소문자로 작성해야함!
 
 add file change
+
+# hashRouter Route
+
+아래와 같이 hashrouter를 쓸 수 있음.
+
+hashRouter는 지나가는 경로에 있는 모둔 라우터를 랜더링 하기 떄문에 `exact={true}`옵션이 반드시 필요함.
+
+예를들어 /detail/1123 으로 갈 경우, /, /detail, /detail/1123 세가지 라우터를 뷰포트에 랜더링함
+
+```js
+// App.js
+import React from "react";
+import { HashRouter, Route } from "react-router-dom";
+import Home from "./routes/Home";
+import About from "./routes/About";
+import Navigation from "./components/Navigation";
+
+function App() {
+  return (
+    <HashRouter>
+      <Navigation />
+      <Route path="/" exact={true} component={Home} />
+      <Route path="/about" component={About} />
+    </HashRouter>
+  );
+}
+
+export default App;
+```
+
+# Link to
+
+URL 경로 이동시 화면의 새로고침이 싫다면, 아래와 같이 작성할 수 있음
+
+`<LINK TO="/PATH">` /PATH는 HashRouter의 Route와 일치하게 작성해야함
+
+```js
+// Navigation.js
+
+import React from "react";
+import { Link } from "react-router-dom";
+
+function Navigation() {
+  return (
+    <div>
+      <Link to="/">Home</Link>
+      <Link to="/about">About</Link>
+    </div>
+  );
+}
+
+export default Navigation;
+```
+
+# props
+
+모든 라우터는 default로 props 객체를 가짐
+
+```js
+function About(props) {
+  console.log(props);
+}
+```
